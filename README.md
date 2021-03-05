@@ -11,3 +11,4 @@ Rule of making contributions to this project.
 
 3. If you use a dataset or create a new dataset in the BML lab and find it useful, please add a description of the dataset into the data Wike web page of this repository and upload the data to /var/www/html/bml_data at sysbio.rnet.missouri.edu server, which is accessible at http://sysbio.rnet.missouri.edu/bml_data/
 
+4. If you create a new tool and find it useful, please add the description and URL of the tool into the tools wiki web page of this reposiotry. 
