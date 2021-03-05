@@ -2,7 +2,7 @@
 This repository contains the frequently asked questions, their answers and the description of resources in the Bioinformatics and Machine Learning Lab (BML).
 
 
-Rule of making contributions to this project.
+Rules of making contributions to this project.
 
 
 1. If you ask a useful, new question, you should enter your question into the FAQ Wiki web page of this respository.
