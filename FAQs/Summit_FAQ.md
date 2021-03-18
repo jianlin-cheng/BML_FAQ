@@ -2,7 +2,29 @@
 Frequently asked questions related to the Summit high-performance computing (HPC) system of the Oak Ridge National Laboratory (ORNL).
 
 - How do I set up my GitHub repository (i.e. working codebase) on Summit?
-  - If you will be working on the project (mostly) by yourself, you will want to keep all of your project files and data in the "Member Work" partition of Summit. You can access this partition by executing the command "cd $MEMBERWORK" from your home directory (i.e. the one at which you initially land when you log into Summit).
+  - If you will be working on a BML project (mostly) by yourself, you will want to keep all of your project files and data in the "Member Work" partition of Summit. You can access this partition by executing the command "cd $MEMBERWORK" from your home directory (i.e. the one at which you initially land when you log into Summit).
   - From there, you will be greeted with a directory for all the projects for which you applied (and were approved by ORNL staff). Once you "cd" into the directory of the project on which you are currently working, you can create your project directory structure(s) as you see fit.
 
 - How do I create Conda environments on Summit?
+
+- How do I install the Deep Graph Library (DGL) on Summit?
+  - You will have to compile it from source, I'm afraid. Fortunately, this work has (largely) already been done for you and tested with version 0.6 of DGL. The steps to install DGL from source and install a Python binary into your currently-activated Conda environment are as follows.
+  ```
+  (Using one of Summit's login nodes, initially with no Conda/venv environments currently activated)
+
+  module load cmake/3.18.2
+  module load gcc/6.4.0
+  module load cuda/10.2.89
+  git clone --depth 1 --branch 0.5.3 https://github.com/dmlc/dgl.git (for installing DGL 0.5.3 - currently erroring out on HPC clusters like Summit) or git clone https://github.com/dmlc/dgl.git (for installing DGL 0.6.0, what is currently the latest release of DGL - currently compiling successfully on HPC clusters like Summit)
+  cd dgl/
+  git submodule update --init --recursive
+  mkdir build
+  cd build/
+  cmake -DUSE_AVX=OFF -DUSE_CUDA=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ ..
+  vim third_party/METIS/libmetis/CMakeFiles/metis.dir/flags.make (to change '-march=native' to '-mcpu=native', followed by writing changes to storage and exiting file)
+  make -j 4
+  cd ../python
+  conda activate $MY_PROJECT_DIR/venv (could have activated or not activated any Python/Conda environment in which to install DGL Python bindings)
+  python setup.py install
+  Profit....? (To be fair, I still need to test that my Python installation of DGL is behaving properly, but I was finally at least able to have DGL show up in my "conda list" showing!)
+  ```
