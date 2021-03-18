@@ -5,8 +5,10 @@ Frequently asked questions related to the Summit high-performance computing (HPC
   - If you will be working on a BML project (mostly) by yourself, you will want to keep all of your project files and data in the ["Member Work" partition](https://docs.olcf.ornl.gov/data/project_centric.html) of Summit. You can access this partition by executing the command "cd $MEMBERWORK" from your home directory (i.e. the one at which you initially land when you log into Summit).
   - From there, you will be greeted with a directory for all the ORNL projects for which you applied (and were approved by ORNL staff). Once you "cd" into the directory of the ORNL project on which you are currently working, you can create your BML project directory structure(s) as you see fit.
 
+
 - How do I create Conda environments on Summit?
-  - ...
+  - See [this starter GitHub repository](https://github.com/amorehead/deep-learning-hpc-project-template) for an example of how you should create and maintain your BML projects' Conda environments on Summit.
+
 
 - How do I install the Deep Graph Library (DGL) on Summit?
   - You will have to compile it from source, I'm afraid. Fortunately, this work has (largely) already been done for you and tested with version 0.6 of DGL. The steps to install DGL from source and install a Python binary into your currently-activated Conda environment are as follows.
@@ -39,6 +41,7 @@ Frequently asked questions related to the Summit high-performance computing (HPC
   ```
   - [This](https://github.com/dmlc/dgl/issues/2661) is a link to the original GitHub issue that spawned all of these instructions.
   - If you encountered no errors after executing all of the preceding commands (in succession), your installation of DGL should be complete! Now, you'll need to test the library with your own dataset and learning algorithms. Best of luck!
+
 
 - How do I change where DGL stores its configuration?
   - Since DGL, by default, stores its configuration files on a read-only partition, you will need to change the location of this directory. [This](https://github.com/dmlc/dgl/issues/2697) is a link to the GitHub issue that explains this issue and its solution in more detail.
