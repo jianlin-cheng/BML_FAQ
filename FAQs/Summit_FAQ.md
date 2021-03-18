@@ -29,5 +29,5 @@ Frequently asked questions related to the Summit high-performance computing (HPC
   cd ../python
   conda activate $MY_PROJECT_DIR/venv  # Can use this to activate and install DGL Python bindings in any Conda environment under $MEMBERWORK
   python setup.py install  # Finish the installation of DGL's pip package in your currently-activated Conda environment
-  # If you encountered no errors up to this point, your installation of DGL should be complete! Now, you'll need to test the library with your own dataset and learning algorithms.
   ```
+  - If you encountered no errors after executing all of the preceding commands (in succession), your installation of DGL should be complete! Now, you'll need to test the library with your own dataset and learning algorithms. Best of luck!
