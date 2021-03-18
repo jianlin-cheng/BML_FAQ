@@ -3,15 +3,15 @@ Frequently asked questions related to the Summit high-performance computing (HPC
 
 - How do I set up my GitHub repository (i.e. working codebase) on Summit?
   - If you will be working on a BML project (mostly) by yourself, you will want to keep all of your project files and data in the "Member Work" partition of Summit. You can access this partition by executing the command "cd $MEMBERWORK" from your home directory (i.e. the one at which you initially land when you log into Summit).
-  - From there, you will be greeted with a directory for all the projects for which you applied (and were approved by ORNL staff). Once you "cd" into the directory of the project on which you are currently working, you can create your project directory structure(s) as you see fit.
+  - From there, you will be greeted with a directory for all the ORNL projects for which you applied (and were approved by ORNL staff). Once you "cd" into the directory of the ORNL project on which you are currently working, you can create your BML project directory structure(s) as you see fit.
 
 - How do I create Conda environments on Summit?
+  - ...
 
 - How do I install the Deep Graph Library (DGL) on Summit?
   - You will have to compile it from source, I'm afraid. Fortunately, this work has (largely) already been done for you and tested with version 0.6 of DGL. The steps to install DGL from source and install a Python binary into your currently-activated Conda environment are as follows.
+  - Using one of Summit's login nodes, in your ORNL project's $MEMBERWORK directory and initially with no Conda/venv environments currently activated:
   ```
-  (Using one of Summit's login nodes, initially with no Conda/venv environments currently activated)
-
   module load cmake/3.18.2
   module load gcc/6.4.0
   module load cuda/10.2.89
@@ -26,5 +26,4 @@ Frequently asked questions related to the Summit high-performance computing (HPC
   cd ../python
   conda activate $MY_PROJECT_DIR/venv (could have activated or not activated any Python/Conda environment in which to install DGL Python bindings)
   python setup.py install
-  Profit....? (To be fair, I still need to test that my Python installation of DGL is behaving properly, but I was finally at least able to have DGL show up in my "conda list" showing!)
   ```
