@@ -15,15 +15,19 @@ Frequently asked questions related to the Summit high-performance computing (HPC
   module load cmake/3.18.2
   module load gcc/6.4.0
   module load cuda/10.2.89
-  git clone --depth 1 --branch 0.5.3 https://github.com/dmlc/dgl.git (for installing DGL 0.5.3 - currently erroring out on HPC clusters like Summit) or git clone https://github.com/dmlc/dgl.git (for installing DGL 0.6.0, what is currently the latest release of DGL - currently compiling successfully on HPC clusters like Summit)
+  git clone --depth 1 --branch 0.6.0 https://github.com/dmlc/dgl.git  # For installing DGL 0.6.0 - currently compiling successfully on HPC clusters like Summit
+  # Clone either a specific version of DGL (with the preceding command) or instead the latest (with the following command)
+  git clone https://github.com/dmlc/dgl.git  # For installing the latest version of DGL
+  # Then, continue with the following:
   cd dgl/
   git submodule update --init --recursive
   mkdir build
   cd build/
   cmake -DUSE_AVX=OFF -DUSE_CUDA=ON -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ ..
-  vim third_party/METIS/libmetis/CMakeFiles/metis.dir/flags.make (to change '-march=native' to '-mcpu=native', followed by writing changes to storage and exiting file)
+  vim third_party/METIS/libmetis/CMakeFiles/metis.dir/flags.make  # To change '-march=native' to '-mcpu=native', followed by writing changes to storage and exiting file
   make -j 4
   cd ../python
-  conda activate $MY_PROJECT_DIR/venv (could have activated or not activated any Python/Conda environment in which to install DGL Python bindings)
-  python setup.py install
+  conda activate $MY_PROJECT_DIR/venv  # Can use this to activate and install DGL Python bindings in any Conda environment under $MEMBERWORK
+  python setup.py install  # Finish the installation of DGL's pip package in your currently-activated Conda environment
+  # If you encountered no errors up to this point, your installation of DGL should be complete! Now, you'll need to test the library with your own dataset and learning algorithms.
   ```
