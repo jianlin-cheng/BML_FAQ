@@ -45,3 +45,6 @@ Frequently asked questions related to the Summit high-performance computing (HPC
 
 - How do I change where DGL stores its configuration?
   - Since DGL, by default, stores its configuration files on a read-only partition, you will need to change the location of this directory. [This](https://github.com/dmlc/dgl/issues/2697) is a link to the GitHub issue that explains this issue and its solution in more detail.
+
+- How do I change where Weights and Biases (WandB) stores its configuration?
+  - Since WandB, by default, stores its configuration files on a read-only partition, you will need to change the location of this directory. [This](https://github.com/wandb/client/issues/1669) is a link to the GitHub issue that explains this issue and its solution in more detail.
