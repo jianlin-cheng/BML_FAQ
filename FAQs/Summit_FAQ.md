@@ -37,5 +37,8 @@ Frequently asked questions related to the Summit high-performance computing (HPC
   conda activate $MY_PROJECT_DIR/venv  # Can use this to activate and install DGL Python bindings in any Conda environment under $MEMBERWORK
   python setup.py install  # Finish the installation of DGL's pip package in your currently-activated Conda environment
   ```
-  - [This](https://github.com/dmlc/dgl/issues/2661) is a reference to the original GitHub issue that spawned all of these instructions.
+  - [This](https://github.com/dmlc/dgl/issues/2661) is a link to the original GitHub issue that spawned all of these instructions.
   - If you encountered no errors after executing all of the preceding commands (in succession), your installation of DGL should be complete! Now, you'll need to test the library with your own dataset and learning algorithms. Best of luck!
+
+- How do I change where DGL stores its configuration?
+  - Since DGL, by default, stores its configuration files on a read-only partition, you will need to change the location of this directory. [This](https://github.com/dmlc/dgl/issues/2697) is a link to the GitHub issue that explains this issue and its solution in more detail.
